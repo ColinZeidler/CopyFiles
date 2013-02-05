@@ -32,7 +32,7 @@ public class Copy extends SimpleFileVisitor<Path> {
 	@Override
 	public FileVisitResult visitFile(Path file, BasicFileAttributes attr) {
 		if (!file.toString().contains(
-				"dynmap" + System.getProperty("file.separator") + "web")) {
+				"dynmap" + System.getProperty("file.separator") + "web")) {// Comment out this if to allow copying of files in a folder called dynmap\web
 			try {
 
 				String sFile = file.toString();
@@ -47,14 +47,14 @@ public class Copy extends SimpleFileVisitor<Path> {
 				System.out.println("Copying file " + file
 						+ " failed to copy to " + copyToNew);
 			}
-		}
+		}	//end of the if to comment out
 		return CONTINUE;
 	}
 
 	@Override
 	public FileVisitResult preVisitDirectory(Path pDir, BasicFileAttributes attr) {
 		if (!pDir.toString().contains(
-				"dynmap" + System.getProperty("file.separator") + "web")) {
+				"dynmap" + System.getProperty("file.separator") + "web")) {// Comment out this if to allow copying of files in a folder called dynmap\web
 			try {
 				dirNum++;
 				if (dirNum > 1) {
@@ -75,7 +75,7 @@ public class Copy extends SimpleFileVisitor<Path> {
 						+ " failed to copy to " + copyToNewDir);
 				System.out.println(e);
 			}
-		}
+		}	//end of the if to comment out
 		return CONTINUE;
 	}
 
